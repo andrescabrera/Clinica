@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc" xmlns:jms="http://www.springframework.org/schema/jms"
+	xmlns:task="http://www.springframework.org/schema/task" xmlns:jaxws="http://cxf.apache.org/jaxws"
+	xsi:schemaLocation="
+            http://www.springframework.org/schema/beans
+            http://www.springframework.org/schema/beans/spring-beans.xsd
+            http://www.springframework.org/schema/aop
+            http://www.springframework.org/schema/aop/spring-aop.xsd
+            http://www.springframework.org/schema/tx
+            http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+            http://www.springframework.org/schema/jdbc
+            http://www.springframework.org/schema/jdbc/spring-jdbc-3.0.xsd
+            http://www.springframework.org/schema/context
+            http://www.springframework.org/schema/context/spring-context-3.0.xsd
+			http://www.springframework.org/schema/jms
+			http://www.springframework.org/schema/jms/spring-jms-3.0.xsd
+			http://cxf.apache.org/jaxws
+			http://cxf.apache.org/schemas/jaxws.xsd
+			http://www.springframework.org/schema/task
+			http://www.springframework.org/schema/task/spring-task-3.0.xsd">
+
+	<bean id="repositorioDeTelefonos"
+		class="com.cabrera.clinica.infraestructure.data.RepositorioDeTelefonosJPA"
+		scope="singleton">
+	</bean>
+
+	<bean id="repositorioDeAreas"
+		class="com.cabrera.clinica.infraestructure.data.RepositorioDeAreasJPA"
+		scope="singleton">
+	</bean>
+
+	<bean id="repositorioDeLiquidaciones"
+		class="com.cabrera.clinica.infraestructure.data.RepositorioDeLiquidacionesJPA"
+		scope="singleton">
+	</bean>
+
+	<bean id="repositorioDeObrasSociales"
+		class="com.cabrera.clinica.infraestructure.data.RepositorioDeObrasSocialesJPA"
+		scope="singleton">
+	</bean>
+
+	<bean id="repositorioDeAnalisis"
+		class="com.cabrera.clinica.infraestructure.data.RepositorioDeAnalisisJPA"
+		scope="singleton">
+	</bean>
+
+	<bean id="repositorioDeTurnos"
+		class="com.cabrera.clinica.infraestructure.data.RepositorioDeTurnosJPA"
+		scope="singleton">
+	</bean>
+
+	<bean id="repositorioDePersonas"
+		class="com.cabrera.clinica.infraestructure.data.RepositorioDePersonasJPA"
+		scope="singleton">
+	</bean>
+
+	<bean id="repositorioDeSecretarias"
+		class="com.cabrera.clinica.infraestructure.data.RepositorioDeSecretariasJPA"
+		scope="singleton">
+	</bean>
+
+	<bean id="repositorioDeMedicos"
+		class="com.cabrera.clinica.infraestructure.data.RepositorioDeMedicosJPA"
+		scope="singleton">
+	</bean>
+
+	<bean id="repositorioDeAdministrativos"
+		class="com.cabrera.clinica.infraestructure.data.RepositorioDeAdministrativosJPA"
+		scope="singleton">
+	</bean>
+
+	<bean id="repositorioDePacientes"
+		class="com.cabrera.clinica.infraestructure.data.RepositorioDePacientesJPA"
+		scope="singleton">
+	</bean>
+
+</beans>
