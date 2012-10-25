@@ -4,6 +4,7 @@
 	version="2.0">
 
 	<persistence-unit name="hibernate" transaction-type="RESOURCE_LOCAL">
+<!-- 		<mapping-file>META-INF/orm.xml</mapping-file> -->
 		<class>com.cabrera.clinica.domain.Rol</class>
 		<class>com.cabrera.clinica.domain.Empleado</class>
 		<class>com.cabrera.clinica.domain.Area</class>

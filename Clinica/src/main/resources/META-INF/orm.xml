@@ -3,11 +3,11 @@
 	xmlns="http://java.sun.com/xml/ns/persistence/orm" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm http://java.sun.com/xml/ns/persistence/orm_2_0.xsd">
 
-	<persistence-unit-metadata>
-		<persistence-unit-defaults>
+<!-- 	<persistence-unit-metadata> -->
+<!-- 		<persistence-unit-defaults> -->
 			<!-- <cascade-persist/> -->
-		</persistence-unit-defaults>
-	</persistence-unit-metadata>
+<!-- 		</persistence-unit-defaults> -->
+<!-- 	</persistence-unit-metadata> -->
 
 	<mapped-superclass class="com.cabrera.clinica.domain.Empresa"
 		access="FIELD">
@@ -195,7 +195,7 @@
 		</attributes>
 	</entity>
 
-	<entity class="com.cabrera.clinica.domain.Liquidacion">
+	<entity class="com.cabrera.clinica.domain.Liquidacion" access="FIELD">
 		<table name="LIQUIDACION"></table>
 		<attributes>
 			<id name="id">

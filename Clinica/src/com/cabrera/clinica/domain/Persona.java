@@ -1,13 +1,9 @@
 package com.cabrera.clinica.domain;
 
 import java.util.Collection;
-//import javax.persistence.*;
 
-//@Entity
 public class Persona {
 	
-//	@Id
-//	@GeneratedValue
 	private Long id;
 	
 	private String nombre;
@@ -15,10 +11,8 @@ public class Persona {
 	private String direccion;
 	private String documento;
 	
-//	@OneToMany(mappedBy="persona", cascade=CascadeType.ALL)
 	private Collection<Rol> roles;
 	
-//	@OneToMany
 	private Collection<Telefono> telefonos;
 	
 	public Persona () {}
@@ -68,28 +62,12 @@ public class Persona {
 		this.id = id;
 	}
 
-	public Collection<Telefono> getTelefonos() {
-		return telefonos;
-	}
-	
-	public void setTelefonos(Collection<Telefono> telefonos) {
-		this.telefonos = telefonos;
-	}
-	
 	public void agregarTelefono(Telefono telefono) {
 		this.telefonos.add(telefono);
 	}
 	
 	public void removerTelefono(Telefono telefono) {
 		this.telefonos.remove(telefono);
-	}
-
-	public Collection<Rol> getRoles() {
-		return roles;
-	}
-
-	public void setRoles(Collection<Rol> roles) {
-		this.roles = roles;
 	}
 
 	public void agregarRol(Rol rol) {

@@ -7,9 +7,15 @@ import java.util.Map;
 
 public class Liquidacion {
 
+	public Liquidacion() {}
+	
+	public Liquidacion(Map<Empleado, Sueldo> sueldos) {
+		this.sueldos = sueldos;
+	}
+	
 	private Long id;
 	private Date fecha;
-	
+
 	private Map<Empleado, Sueldo> sueldos;
 	
 	public Long getId() {
@@ -36,7 +42,10 @@ public class Liquidacion {
 		//Acá podría ir alguna validacion, si estamos en el día de la liquidacion o si esta cerrada.
 		if(fecha == null)
 			this.fecha = new Date();
-		sueldos.put(empleado, empleado.getSueldo());
+		if(sueldos == null)
+			System.out.println("Sueldos es null");
+		else
+			sueldos.put(empleado, empleado.getSueldo());
 	}
 	
 	public Sueldo verSueldo (Empleado empleado) {
@@ -58,13 +67,6 @@ public class Liquidacion {
 		return montoTotal;
 	}
 
-	public Map<Empleado, Sueldo> getSueldos() {
-		return sueldos;
-	}
-
-	public void setSueldos(Map<Empleado, Sueldo> sueldos) {
-		this.sueldos = sueldos;
-	}
 	
 	public void mostrarLiquidacion() {
 		Iterator<Map.Entry<Empleado, Sueldo>> it = sueldos.entrySet().iterator();

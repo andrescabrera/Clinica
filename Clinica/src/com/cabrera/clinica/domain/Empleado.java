@@ -59,6 +59,6 @@ public abstract class Empleado extends Rol {
 	@Override
 	public String toString() {
 		return legajo.toString();
-	}	
+	}
 	
 }

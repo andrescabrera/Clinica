@@ -4,9 +4,10 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
 	xmlns:jdbc="http://www.springframework.org/schema/jdbc" xmlns:jms="http://www.springframework.org/schema/jms"
 	xmlns:task="http://www.springframework.org/schema/task" xmlns:jaxws="http://cxf.apache.org/jaxws"
+	xmlns:util="http://www.springframework.org/schema/util"
 	xsi:schemaLocation="
             http://www.springframework.org/schema/beans
-            http://www.springframework.org/schema/beans/spring-beans.xsd
+            http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
             http://www.springframework.org/schema/aop
             http://www.springframework.org/schema/aop/spring-aop.xsd
             http://www.springframework.org/schema/tx
@@ -20,7 +21,9 @@
 			http://cxf.apache.org/jaxws
 			http://cxf.apache.org/schemas/jaxws.xsd
 			http://www.springframework.org/schema/task
-			http://www.springframework.org/schema/task/spring-task-3.0.xsd">
+			http://www.springframework.org/schema/task/spring-task-3.0.xsd 
+			http://www.springframework.org/schema/util 
+			http://www.springframework.org/schema/util/spring-util-3.0.xsd">
 
 
 	<bean id="administrativo" class="com.cabrera.clinica.domain.Administrativo"
@@ -28,30 +31,33 @@
 	</bean>
 
 	<bean id="analisis" class="com.cabrera.clinica.domain.Analisis"
-		scope="prototype">
+		scope="prototype" autowire="default">
 	</bean>
 
-	<bean id="area" class="com.cabrera.clinica.domain.Area" scope="prototype"></bean>
+	<bean id="area" class="com.cabrera.clinica.domain.Area" scope="prototype">
+		<property name="empleados">
+			<list></list>
+		</property>
+	</bean>
 
 	<bean id="empresa" class="com.cabrera.clinica.domain.Empresa"
-		scope="prototype">
+		scope="prototype" autowire="default">
+	</bean>
+
+	<bean id="rol" class="com.cabrera.clinica.domain.Rol"
+		scope="prototype" autowire="default">
+	</bean>
+
+	<bean id="sueldo" class="com.cabrera.clinica.domain.Sueldo" scope="prototype">
 	</bean>
 
 	<bean id="liquidacion" class="com.cabrera.clinica.domain.Liquidacion"
 		scope="prototype">
-		<property name="sueldos">
-			<map>
-<!-- 				<entry> -->
-<!-- 					<key> -->
-<!-- 						<value>test</value> -->
-<!-- 					</key>					 -->
-<!-- 					<list> -->
-<!-- 						<value>String</value> -->
-<!-- 						<value>String</value> -->
-<!-- 					</list> -->
-<!-- 				</entry> -->
-			</map>
-		</property>
+		<constructor-arg>
+			<util:map id="sueldos" map-class="java.util.HashMap"
+				key-type="com.cabrera.clinica.domain.Empleado" value-type="com.cabrera.clinica.domain.Sueldo">
+			</util:map>
+		</constructor-arg>
 	</bean>
 
 	<bean id="medico" class="com.cabrera.clinica.domain.Medico" scope="prototype"></bean>
@@ -70,12 +76,12 @@
 
 	<bean id="persona" class="com.cabrera.clinica.domain.Persona"
 		scope="prototype">
-		<property name="roles">
-			<list />
-		</property>
-		<property name="telefonos">
-			<set />
-		</property>
+		<constructor-arg name="roles">
+			<list></list>
+		</constructor-arg>
+		<constructor-arg name="telefonos">
+			<set></set>
+		</constructor-arg>
 	</bean>
 
 	<bean id="proveedor" class="com.cabrera.clinica.domain.Proveedor"
@@ -100,6 +106,4 @@
 	<bean id="turno" class="com.cabrera.clinica.domain.Turno" scope="prototype">
 	</bean>
 
-	<bean id="sueldo" class="com.cabrera.clinica.domain.Sueldo" scope="prototype">
-	</bean>
 </beans>
