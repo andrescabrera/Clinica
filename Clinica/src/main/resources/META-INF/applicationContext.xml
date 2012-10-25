@@ -33,6 +33,6 @@
 
 	<!-- Domain Model Beans -->
 	<import resource="repositoriesBeans.xml" />
-	<import resource="mainBeans.xml" />
-
+	<import resource="businessObjects.xml" />
+	<import resource="serviceBeans.xml" />
 </beans>

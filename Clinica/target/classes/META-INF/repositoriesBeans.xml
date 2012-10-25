@@ -22,8 +22,19 @@
 			http://www.springframework.org/schema/task
 			http://www.springframework.org/schema/task/spring-task-3.0.xsd">
 
+
 	<bean id="repositorioDeTelefonos"
 		class="com.cabrera.clinica.infraestructure.data.RepositorioDeTelefonosJPA"
+		scope="singleton">
+	</bean>
+
+	<bean id="repositorioDeProveedores"
+		class="com.cabrera.clinica.infraestructure.data.RepositorioDeProveedoresJPA"
+		scope="singleton">
+	</bean>
+	
+	<bean id="repositorioDeTiposDeTelefono"
+		class="com.cabrera.clinica.infraestructure.data.RepositorioDeTiposDeTelefonoJPA"
 		scope="singleton">
 	</bean>
 
@@ -74,6 +85,11 @@
 
 	<bean id="repositorioDePacientes"
 		class="com.cabrera.clinica.infraestructure.data.RepositorioDePacientesJPA"
+		scope="singleton">
+	</bean>
+
+	<bean id="repositorioDePagos"
+		class="com.cabrera.clinica.infraestructure.data.RepositorioDePagosJPA"
 		scope="singleton">
 	</bean>
 

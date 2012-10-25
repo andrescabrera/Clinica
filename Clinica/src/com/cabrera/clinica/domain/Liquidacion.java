@@ -37,7 +37,7 @@ public class Liquidacion {
 	
 	//TODO - Alguna lógica de negocio que se me ocurre ahora
 	
-	public void realizarLiquidacion(Empleado empleado)
+	public void liquidarEmpleado(Empleado empleado)
 	{
 		//Acá podría ir alguna validacion, si estamos en el día de la liquidacion o si esta cerrada.
 		if(fecha == null)
@@ -66,8 +66,9 @@ public class Liquidacion {
 			montoTotal += unSueldo.getNeto();
 		return montoTotal;
 	}
-
 	
+	// TODO test method
+	/** Imprime por pantalla **/
 	public void mostrarLiquidacion() {
 		Iterator<Map.Entry<Empleado, Sueldo>> it = sueldos.entrySet().iterator();
 		System.out.println("Liquidacion del: " + fecha.toString());
