@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc" xmlns:jms="http://www.springframework.org/schema/jms"
+	xmlns:task="http://www.springframework.org/schema/task" xmlns:jaxws="http://cxf.apache.org/jaxws"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="
+            http://www.springframework.org/schema/beans
+            http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+            http://www.springframework.org/schema/aop
+            http://www.springframework.org/schema/aop/spring-aop.xsd
+            http://www.springframework.org/schema/tx
+            http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+            http://www.springframework.org/schema/jdbc
+            http://www.springframework.org/schema/jdbc/spring-jdbc-3.0.xsd
+            http://www.springframework.org/schema/context
+            http://www.springframework.org/schema/context/spring-context-3.0.xsd
+			http://www.springframework.org/schema/jms
+			http://www.springframework.org/schema/jms/spring-jms-3.0.xsd
+			http://cxf.apache.org/jaxws
+			http://cxf.apache.org/schemas/jaxws.xsd
+			http://www.springframework.org/schema/task
+			http://www.springframework.org/schema/task/spring-task-3.0.xsd 
+			http://www.springframework.org/schema/util 
+			http://www.springframework.org/schema/util/spring-util-3.0.xsd">
+
+
+	<bean id="administrativo" class="com.cabrera.clinica.domain.Administrativo"
+		scope="prototype">
+	</bean>
+
+	<bean id="analisis" class="com.cabrera.clinica.domain.Analisis"
+		scope="prototype" autowire="default">
+	</bean>
+
+	<bean id="area" class="com.cabrera.clinica.domain.Area" scope="prototype">
+		<property name="empleados">
+			<list></list>
+		</property>
+	</bean>
+
+	<bean id="empresa" class="com.cabrera.clinica.domain.Empresa"
+		scope="prototype" autowire="default">
+	</bean>
+
+	<bean id="rol" class="com.cabrera.clinica.domain.Rol"
+		scope="prototype" autowire="default">
+	</bean>
+
+	<bean id="sueldo" class="com.cabrera.clinica.domain.Sueldo" scope="prototype">
+	</bean>
+
+	<bean id="liquidacion" class="com.cabrera.clinica.domain.Liquidacion"
+		scope="prototype">
+		<constructor-arg>
+			<util:map id="sueldos" map-class="java.util.HashMap"
+				key-type="com.cabrera.clinica.domain.Empleado" value-type="com.cabrera.clinica.domain.Sueldo">
+			</util:map>
+		</constructor-arg>
+	</bean>
+
+	<bean id="medico" class="com.cabrera.clinica.domain.Medico" scope="prototype"></bean>
+
+	<bean id="obraSocial" class="com.cabrera.clinica.domain.ObraSocial"
+		scope="prototype"></bean>
+
+	<bean id="paciente" class="com.cabrera.clinica.domain.Paciente"
+		scope="prototype">
+		<property name="contraPrestaciones">
+			<list />
+		</property>
+	</bean>
+
+	<bean id="pago" class="com.cabrera.clinica.domain.Pago" scope="prototype"></bean>
+
+	<bean id="persona" class="com.cabrera.clinica.domain.Persona"
+		scope="prototype">
+		<constructor-arg name="roles">
+			<list></list>
+		</constructor-arg>
+		<constructor-arg name="telefonos">
+			<set></set>
+		</constructor-arg>
+	</bean>
+
+	<bean id="proveedor" class="com.cabrera.clinica.domain.Proveedor"
+		scope="prototype">
+	</bean>
+
+	<bean id="secretaria" class="com.cabrera.clinica.domain.Secretaria"
+		scope="prototype">
+		<property name="sueldo">
+			<ref bean="sueldo" />
+		</property>
+	</bean>
+
+	<bean id="telefono" class="com.cabrera.clinica.domain.Telefono"
+		scope="prototype">
+	</bean>
+
+	<bean id="tipoTelefono" class="com.cabrera.clinica.domain.TipoTelefono"
+		scope="prototype">
+	</bean>
+
+	<bean id="turno" class="com.cabrera.clinica.domain.Turno" scope="prototype">
+	</bean>
+
+</beans>
