@@ -34,10 +34,7 @@
 		scope="prototype" autowire="default">
 	</bean>
 
-	<bean id="area" class="com.cabrera.clinica.domain.Area" scope="prototype">
-		<property name="empleados">
-			<list></list>
-		</property>
+	<bean id="area" class="com.cabrera.clinica.domain.Area" scope="prototype" autowire="default">
 	</bean>
 
 	<bean id="empresa" class="com.cabrera.clinica.domain.Empresa"
@@ -45,6 +42,10 @@
 	</bean>
 
 	<bean id="rol" class="com.cabrera.clinica.domain.Rol"
+		scope="prototype" autowire="default">
+	</bean>
+	
+	<bean id="empleado" class="com.cabrera.clinica.domain.Empleado"
 		scope="prototype" autowire="default">
 	</bean>
 

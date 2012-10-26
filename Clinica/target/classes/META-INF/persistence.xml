@@ -4,7 +4,7 @@
 	version="2.0">
 
 	<persistence-unit name="hibernate" transaction-type="RESOURCE_LOCAL">
-<!-- 		<mapping-file>META-INF/orm.xml</mapping-file> -->
+		<!-- <mapping-file>META-INF/orm.xml</mapping-file> -->
 		<class>com.cabrera.clinica.domain.Rol</class>
 		<class>com.cabrera.clinica.domain.Empleado</class>
 		<class>com.cabrera.clinica.domain.Area</class>
@@ -13,7 +13,7 @@
 		<class>com.cabrera.clinica.domain.Sueldo</class>
 		<class>com.cabrera.clinica.domain.Empresa</class>
 		<class>com.cabrera.clinica.domain.Liquidacion</class>
-		<class>com.cabrera.clinica.domain.ObraSocial</class>		
+		<class>com.cabrera.clinica.domain.ObraSocial</class>
 		<class>com.cabrera.clinica.domain.Paciente</class>
 		<class>com.cabrera.clinica.domain.Medico</class>
 		<class>com.cabrera.clinica.domain.Administrativo</class>

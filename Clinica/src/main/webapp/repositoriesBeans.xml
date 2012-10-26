@@ -72,6 +72,11 @@
 		class="com.cabrera.clinica.infraestructure.data.RepositorioDeSecretariasJPA"
 		scope="singleton">
 	</bean>
+	
+	<bean id="repositorioDeEmpleados"
+		class="com.cabrera.clinica.infraestructure.data.RepositorioDeEmpleadosJPA"
+		scope="singleton">
+	</bean>
 
 	<bean id="repositorioDeMedicos"
 		class="com.cabrera.clinica.infraestructure.data.RepositorioDeMedicosJPA"

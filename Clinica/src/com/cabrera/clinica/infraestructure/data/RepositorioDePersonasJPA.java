@@ -10,7 +10,7 @@ import com.cabrera.clinica.domain.repositories.RepositorioDePersonas;
 public class RepositorioDePersonasJPA extends BaseRepositoryJPA<Persona, Long> implements RepositorioDePersonas {
 	
 	private static final String sqlDeletePersonas = "DELETE FROM persona";
-	private static final String sqlSelectPersonas = "SELECT p FROM persona p";
+	private static final String sqlSelectPersonas = "SELECT p FROM com.cabrera.clinica.domain.Persona p";
 	
 	public void removeAll() {
 		entityManager.createQuery(sqlDeletePersonas).executeUpdate();

@@ -21,7 +21,7 @@ public class LiquidacionesService {
 	private RepositorioDeLiquidaciones repositorio;
 	
 	@Autowired
-	@Qualifier("servicioEmpleado")
+	@Qualifier("empleadoService")
 	private EmpleadoService servicioEmpleado;
 	
 	public Liquidacion guardar(Liquidacion l){
