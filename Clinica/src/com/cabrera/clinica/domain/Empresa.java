@@ -1,6 +1,7 @@
 package com.cabrera.clinica.domain;
 
 import java.util.Collection;
+import java.util.Date;
 
 public abstract class Empresa {
 
@@ -10,6 +11,9 @@ public abstract class Empresa {
 	private String tipoEmpresa;
 	private Collection<Telefono> telefonos;
 	private Double saldo;
+	
+	private Date alta;
+	private Date baja;
 	
 	public Long getId() {
 		return id;
@@ -57,5 +61,21 @@ public abstract class Empresa {
 
 	public void setSaldo(Double saldo) {
 		this.saldo = saldo;
+	}
+
+	public Date getBaja() {
+		return baja;
+	}
+
+	public void setBaja(Date baja) {
+		this.baja = baja;
+	}
+
+	public Date getAlta() {
+		return alta;
+	}
+
+	public void setAlta(Date alta) {
+		this.alta = alta;
 	}
 }

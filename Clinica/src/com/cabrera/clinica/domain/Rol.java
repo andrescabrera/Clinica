@@ -1,22 +1,32 @@
 package com.cabrera.clinica.domain;
 
-//@Entity
-//@Inheritance(strategy=InheritanceType.JOINED)
-//@DiscriminatorColumn(name = "ROL_TYPE")
+import java.util.Date;
+
 public abstract class Rol {
 
-//	@GeneratedValue(generator = "IdGenerator", strategy = GenerationType.TABLE)
-//	@Id
-//	@TableGenerator(name = "IdGenerator",
-//	pkColumnValue = "ROL_ID",
-//	table="Sequence_Table",
-//	allocationSize=1 )
 	private Long id;
 	
-//	@ManyToOne(cascade=CascadeType.ALL, fetch=FetchType.LAZY)
-//	@JoinColumn(name="PERSONA_ID")
+	private Date fechaAlta;
+	private Date fechaBaja;
+	
 	private Persona persona;
 	
+	public Date getFechaAlta() {
+		return fechaAlta;
+	}
+
+	public void setFechaAlta(Date fechaAlta) {
+		this.fechaAlta = fechaAlta;
+	}
+
+	public Date getFechaBaja() {
+		return fechaBaja;
+	}
+
+	public void setFechaBaja(Date fechaBaja) {
+		this.fechaBaja = fechaBaja;
+	}
+
 	public Persona getPersona() {
 		return persona;
 	}

@@ -1,6 +1,7 @@
 package com.cabrera.clinica.domain;
 
 import java.util.Collection;
+import java.util.Date;
 
 public class Persona {
 	
@@ -10,7 +11,25 @@ public class Persona {
 	private String apellido;
 	private String direccion;
 	private String documento;
+	private Date fechaAlta;
+	private Date fechaBaja;
 	
+	public Date getFechaAlta() {
+		return fechaAlta;
+	}
+
+	public void setFechaAlta(Date fechaAlta) {
+		this.fechaAlta = fechaAlta;
+	}
+
+	public Date getFechaBaja() {
+		return fechaBaja;
+	}
+
+	public void setFechaBaja(Date fechaBaja) {
+		this.fechaBaja = fechaBaja;
+	}
+
 	private Collection<Rol> roles;
 	
 	private Collection<Telefono> telefonos;

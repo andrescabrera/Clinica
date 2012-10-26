@@ -9,7 +9,16 @@
 	<properties>
 		<spring.version>3.1.2.RELEASE</spring.version>
 		<hibernate.version>4.1.7.Final</hibernate.version>
+		<user.home.repository>C:\Users\Andrés Cabrera\.m2\repository</user.home.repository>
 	</properties>
+	<distributionManagement>
+		<repository>
+			<id>myRepoId</id>
+			<name>cabreraRepository</name>
+			<!-- <url>scp://nothing/</url> -->
+			<url>file:${user.home.repository}</url>
+		</repository>
+	</distributionManagement>
 	<repositories>
 		<repository>
 			<id>jboss</id>
@@ -41,6 +50,16 @@
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-aop</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
 		<dependency>
@@ -83,19 +102,46 @@
 			<artifactId>javax.inject</artifactId>
 			<version>1</version>
 		</dependency>
+		<dependency>
+			<groupId>jstl</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.2</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.taglibs</groupId>
+			<artifactId>taglibs-parent</artifactId>
+			<version>3</version>
+			<type>pom</type>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.tomcat.maven</groupId>
+			<artifactId>tomcat7-maven-plugin</artifactId>
+			<version>2.0</version>
+			<type>maven-plugin</type>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.maven.wagon</groupId>
+			<artifactId>wagon-file</artifactId>
+			<version>2.2</version>
+		</dependency>
 	</dependencies>
 
 	<build>
 		<sourceDirectory>src</sourceDirectory>
 		<resources>
 			<resource>
-				<directory>src/main/resources</directory>
+				<directory>src/main/webapp</directory>
 				<filtering>true</filtering>
 			</resource>
 		</resources>
 
 		<pluginManagement>
 			<plugins>
+				<plugin>
+        		  <groupId>org.apache.tomcat.maven</groupId>
+        		  <artifactId>tomcat7-maven-plugin</artifactId>
+        		  <version>2.0</version>
+        		</plugin>
 				<plugin>
 					<groupId>org.codehaus.mojo</groupId>
 					<artifactId>sql-maven-plugin</artifactId>
@@ -132,6 +178,14 @@
 
 		<plugins>
 			<plugin>
+   				 <groupId>org.apache.tomcat.maven</groupId>
+   	 			<artifactId>tomcat-maven-plugin</artifactId>
+   				 <configuration>
+       			     <server>myServer</server>
+		   		  </configuration>
+		   		  <version>2.0</version>
+			</plugin>
+			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>2.3.2</version>
 				<configuration>
@@ -142,8 +196,6 @@
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>sql-maven-plugin</artifactId>
-				<version>1.5</version>
-
 				<dependencies>
 					<!-- specify the dependent jdbc driver here -->
 					<dependency>
@@ -198,4 +250,5 @@
 		</plugins>
 
 	</build>
+	<packaging>war</packaging>
 </project>
