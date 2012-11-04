@@ -1,0 +1,27 @@
+@CHARSET "ISO-8859-1";
+
+@font-face {
+	
+	font-family: cmss17;
+	src: url(fonts/cmss17.ttf) format("truetype");
+}
+
+header h1 {
+	font-family: cmss17;
+	background: url("../resources/header.png") no-repeat;
+	padding: 100px 400px;
+}
+
+body {
+    background-color: white;
+    color: blue;
+}
+
+nav {
+	background-color: blue;
+	color: white;
+}
+
+nav ul {
+	float:left;	
+}
