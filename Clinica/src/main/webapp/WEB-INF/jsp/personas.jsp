@@ -1,43 +1,58 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
+<!DOCTYPE html>
+<html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Listado</title>
 
+<title><spring:message code="label.personas.title"/></title>
+<link rel="stylesheet" href="<spring:theme code="css"/>" type="text/css"/>
 </head>
 
 <body>
-
-	<h1>Listado</h1>
-	<a href="nuevo.html">Nuevo</a>
-	<table>
-		<tr>
-			<td>ID</td>
-			<td>Nombre</td>
-			<td>Apellido</td>
-			<td>Documento</td>
-			<td>Fecha de Baja</td>
-			<td></td>
-			<td></td>
-		</tr>
-		<c:forEach items="${personas}" var="p">
-			<tr>
-				<td>${p.id}</td>
-				<td>${p.nombre}</td>
-				<td>${p.apellido}</td>
-				<td>${p.documento}</td>
-				<td>${p.fechaBaja}</td>
-				<td><a href="editar.html?id=${p.id}">Editar</a>
-				</td>
-				<td><a href="borrar.html?id=${p.id}">Borrar</a>
-				</td>
-			</tr>
+	<header>
+		<h1><spring:message code="label.personas.title"></spring:message></h1>
+	</header>
+	<nav>
+		<ul>
+			<li><a><spring:message code="label.personas.title"></spring:message></a>
+				<ul>
+					<li><a><spring:message code="label.pacientes.title"></spring:message></a></li>
+					<li><a><spring:message code="label.empleados.title"></spring:message></a>
+						<ul>
+							<li><a><spring:message code="label.medicos"></spring:message></a></li>
+							<li><a><spring:message code="label.secretarias"></spring:message></a></li>
+							<li><a><spring:message code="label.administrativos"></spring:message></a></li>
+						</ul></li>
+				</ul></li>
+			<li><a href="/personas/alta.html"><spring:message code="label.personas.nueva"></spring:message></a></li>
+		</ul>
+	</nav>
+	<section>
+		<!-- Listo las personas -->
+		<c:forEach items="${personas}" var="persona">
+			<article>
+				<!-- Muestro UNA persona -->
+				<header>
+					<p>${persona.nombre} ${persona.apellido}</p>
+				</header>
+				<details title="Ver detalles">
+					<p>${persona.id}</p>
+					<p>${persona.documento}</p>
+					<p>${persona.fechaBaja}</p>
+					<div>
+						<a href="/personas/editar.html?id=${p.id}"><spring:message code="label.editar"></spring:message></a> <a
+							href="/personas/borrar.html?id=${p.id}"><spring:message code="label.borrar"></spring:message></a>
+					</div>
+				</details>
+			</article>
 		</c:forEach>
-
-	</table>
-
+	</section>
+	<footer>
+		<p><spring:message code="label.footer"></spring:message></p>
+	</footer>
 </body>
+
 </html>

@@ -18,19 +18,19 @@ public class MedicoService {
 	@Qualifier("repositorioDeMedicos")
 	private RepositorioDeMedicos repositorio;
 	
-	public Medico guardar(Medico entity){
+	public Medico saveOrUpdate(Medico entity){
 		return repositorio.saveOrUpdate(entity); 
 	}
 	
-	public Collection<Medico> listar() {
+	public Collection<Medico> findAll() {
 		return repositorio.findAll();
 	}
 	
-	public Medico obtenerPorId(Long id) {
+	public Medico findById(Long id) {
 		return repositorio.findById(id);
 	}
 	
-	public void borrar(Medico entity) {
+	public void remove(Medico entity) {
 		repositorio.remove(entity);
 	}
 	

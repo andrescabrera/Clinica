@@ -18,19 +18,19 @@ public class PagoService {
 	@Qualifier("repositorioDePagos")
 	private RepositorioDePagos repositorio;
 	
-	public Pago guardar(Pago entity){
+	public Pago saveOrUpdate(Pago entity){
 		return repositorio.saveOrUpdate(entity); 
 	}
 	
-	public Collection<Pago> listar() {
+	public Collection<Pago> findAll() {
 		return repositorio.findAll();
 	}
 	
-	public Pago obtenerPorId(Long id) {
+	public Pago findById(Long id) {
 		return repositorio.findById(id);
 	}
 	
-	public void borrar(Pago entity) {
+	public void remove(Pago entity) {
 		repositorio.remove(entity);
 	}
 

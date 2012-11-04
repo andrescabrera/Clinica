@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>Clinica</groupId>
 	<artifactId>Clinica</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.5.0-SNAPSHOT</version>
 	<name>Clinica</name>
 	<description>Sistema de Administración de Clinicas</description>
 	<properties>
@@ -24,6 +24,14 @@
 		<repository>
 			<id>jboss</id>
 			<url>https://repository.jboss.org/nexus/content/groups/public-jboss/</url>
+		</repository>
+		<repository>
+			<id>org.springframework.maven.milestone</id>
+			<name>Spring Maven Milestone Repository</name>
+			<url>http://maven.springframework.org/milestone</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
 		</repository>
 	</repositories>
 	<!-- AOP dependency -->
@@ -67,7 +75,7 @@
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-webmvc</artifactId>
 			<version>${spring.version}</version>
-		</dependency>
+		</dependency>	
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-core</artifactId>
@@ -218,6 +226,23 @@
 			<artifactId>wagon-file</artifactId>
 			<version>2.2</version>
 		</dependency>
+		<dependency>
+			<groupId>commons-dbcp</groupId>
+			<artifactId>commons-dbcp</artifactId>
+			<version>1.2.2</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.cloudfoundry</groupId>
+			<artifactId>cloudfoundry-runtime</artifactId>
+			<version>0.8.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>3.1-b02</version>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -247,10 +272,10 @@
 							</goals>
 						</execution>
 					</executions>
-<!-- 					<configuration> -->
-<!-- 						<relativePath>../</relativePath> -->
-<!-- 						<rootPath>$${rebel.root}</rootPath> -->
-<!-- 					</configuration> -->
+					<!-- <configuration> -->
+					<!-- <relativePath>../</relativePath> -->
+					<!-- <rootPath>$${rebel.root}</rootPath> -->
+					<!-- </configuration> -->
 				</plugin>
 				<plugin>
 					<groupId>org.apache.tomcat.maven</groupId>

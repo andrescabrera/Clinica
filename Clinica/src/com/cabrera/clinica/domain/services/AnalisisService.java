@@ -18,19 +18,19 @@ public class AnalisisService {
 	@Qualifier("repositorioDeAnalisis")
 	private RepositorioDeAnalisis repositorio;
 	
-	public Analisis guardar(Analisis entity){
+	public Analisis saveOrUpdate(Analisis entity){
 		return repositorio.saveOrUpdate(entity); 
 	}
 	
-	public Collection<Analisis> listar() {
+	public Collection<Analisis> findAll() {
 		return repositorio.findAll();
 	}
 	
-	public Analisis obtenerPorId(Long id) {
+	public Analisis findById(Long id) {
 		return repositorio.findById(id);
 	}
 	
-	public void borrar(Analisis entity) {
+	public void remove(Analisis entity) {
 		repositorio.remove(entity);
 	}
 }

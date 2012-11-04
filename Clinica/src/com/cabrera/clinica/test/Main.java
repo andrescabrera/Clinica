@@ -20,8 +20,8 @@ import com.cabrera.clinica.domain.services.PersonaService;
 import com.cabrera.clinica.domain.services.TelefonoService;
 
 /**
- * Sistema de Administración de Clinica Medica 
- * Demostración de la persistencia y del funcionamiento del modelo.
+ * Sistema de Administraciï¿½n de Clinica Medica 
+ * Demostraciï¿½n de la persistencia y del funcionamiento del modelo.
  * 
  * @author acabrera
  * 
@@ -39,7 +39,7 @@ public class Main {
 		Persona pepino = (Persona) appContext.getBean("persona");
 		pepino.setApellido("Cabrera");
 		pepino.setDireccion("Alsina 178");
-		pepino.setNombre("Andrés");
+		pepino.setNombre("Andrï¿½s");
 		pepino.setDocumento("31998243");
 		Paciente pacientePepe = (Paciente) appContext.getBean("paciente");
 
@@ -60,24 +60,24 @@ public class Main {
 		pacientePepe.listarContraPrestaciones();
 
 		PacienteService pacienteService = (PacienteService) appContext.getBean("pacienteService");
-		pacientePepe = pacienteService.guardar(pacientePepe);
+		pacientePepe = pacienteService.saveOrUpdate(pacientePepe);
 		
 		PersonaService personaService = (PersonaService) appContext.getBean("personaService");
-		pepino = personaService.guardar(pepino);
+		pepino = personaService.saveOrUpdate(pepino);
 		
 		System.out.println("Id de Paciente: " + pacientePepe.getId());
 		System.out.println("Levantando paciente...");
 		
-		Paciente siSeGuardoEsta = pacienteService.obtenerPorId(pacientePepe.getId());
+		Paciente siSeGuardoEsta = pacienteService.findById(pacientePepe.getId());
 		System.out.println("Id del paciente guardado: "
 				+ siSeGuardoEsta.getId());
 
 		Telefono tel = (Telefono) appContext.getBean("telefono");
 		tel.setNumero("123123123");
 		TelefonoService telService = (TelefonoService)appContext.getBean("telefonoService");
-		telService.guardar(tel);
+		telService.saveOrUpdate(tel);
 		
-		for (Telefono t : telService.listar()) {
+		for (Telefono t : telService.findAll()) {
 			System.out.println("Tel bd: " + t.getNumero());
 		}
 		System.out.println("Numero de Tel: " + tel.getNumero());

@@ -18,19 +18,19 @@ public class TiposDeTelefonosService {
 	@Qualifier("repositorioDeTiposDeTelefono")
 	private RepositorioDeTiposDeTelefono repositorio;
 	
-	public TipoTelefono guardar(TipoTelefono entity){
+	public TipoTelefono saveOrUpdate(TipoTelefono entity){
 		return repositorio.saveOrUpdate(entity); 
 	}
 	
-	public Collection<TipoTelefono> listar() {
+	public Collection<TipoTelefono> findAll() {
 		return repositorio.findAll();
 	}
 	
-	public TipoTelefono obtenerPorId(Long id) {
+	public TipoTelefono findById(Long id) {
 		return repositorio.findById(id);
 	}
 	
-	public void borrar(TipoTelefono entity) {
+	public void remove(TipoTelefono entity) {
 		repositorio.remove(entity);
 	}
 }

@@ -18,19 +18,19 @@ public class ProveedorService {
 	@Qualifier("repositorioDeProveedores")
 	private RepositorioDeProveedores repositorio;
 	
-	public Proveedor guardar(Proveedor entity){
+	public Proveedor saveOrUpdate(Proveedor entity){
 		return repositorio.saveOrUpdate(entity); 
 	}
 	
-	public Collection<Proveedor> listar() {
+	public Collection<Proveedor> findAll() {
 		return repositorio.findAll();
 	}
 	
-	public Proveedor obtenerPorId(Long id) {
+	public Proveedor findById(Long id) {
 		return repositorio.findById(id);
 	}
 	
-	public void borrar(Proveedor entity) {
+	public void remove(Proveedor entity) {
 		repositorio.remove(entity);
 	}
 }

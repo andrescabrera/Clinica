@@ -18,19 +18,19 @@ public class PersonaService {
 	@Qualifier("repositorioDePersonas")
 	private RepositorioDePersonas repositorio;
 	
-	public Persona guardar(Persona entity){
+	public Persona saveOrUpdate(Persona entity){
 		return repositorio.saveOrUpdate(entity); 
 	}
 	
-	public Collection<Persona> listar() {
+	public Collection<Persona> findAll() {
 		return repositorio.findAll();
 	}
 	
-	public Persona obtenerPorId(Long id) {
+	public Persona findById(Long id) {
 		return repositorio.findById(id);
 	}
 	
-	public void borrar(Persona entity) {
+	public void remove(Persona entity) {
 		repositorio.remove(entity);
 	}
 }

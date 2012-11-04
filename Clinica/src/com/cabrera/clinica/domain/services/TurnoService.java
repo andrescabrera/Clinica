@@ -18,19 +18,19 @@ public class TurnoService {
 	@Qualifier("repositorioDeTurnos")
 	private RepositorioDeTurnos repositorio;
 	
-	public Turno guardar(Turno entity){
+	public Turno saveOrUpdate(Turno entity){
 		return repositorio.saveOrUpdate(entity); 
 	}
 	
-	public Collection<Turno> listar() {
+	public Collection<Turno> findAll() {
 		return repositorio.findAll();
 	}
 	
-	public Turno obtenerPorId(Long id) {
+	public Turno findById(Long id) {
 		return repositorio.findById(id);
 	}
 	
-	public void borrar(Turno entity) {
+	public void remove(Turno entity) {
 		repositorio.remove(entity);
 	}
 }

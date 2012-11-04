@@ -4,7 +4,7 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
 	xmlns:jdbc="http://www.springframework.org/schema/jdbc" xmlns:jms="http://www.springframework.org/schema/jms"
 	xmlns:task="http://www.springframework.org/schema/task" xmlns:jaxws="http://cxf.apache.org/jaxws"
-	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:cloud="http://schema.cloudfoundry.org/spring"
 	xsi:schemaLocation="
             http://www.springframework.org/schema/beans
             http://www.springframework.org/schema/beans/spring-beans.xsd
@@ -23,7 +23,9 @@
 			http://www.springframework.org/schema/mvc
 			http://www.springframework.org/schema/mvc/spring-mvc-3.1.xsd
 			http://cxf.apache.org/schemas/jaxws.xsd
-			http://cxf.apache.org/jaxws">
+			http://cxf.apache.org/jaxws
+			http://schema.cloudfoundry.org/spring
+			http://schema.cloudfoundry.org/spring/cloudfoundry-spring.xsd">
 
 	<tx:annotation-driven />
 
@@ -33,6 +35,8 @@
 
 	<mvc:annotation-driven />
 
+	<cloud:data-source id="dataSource" />
+
 	<import resource="dataSource.xml" />
 	<import resource="jpaBeans.xml" />
 
@@ -41,4 +45,6 @@
 	<import resource="businessObjects.xml" />
 	<import resource="serviceBeans.xml" />
 	
+	
+
 </beans>

@@ -35,6 +35,12 @@ public abstract class BaseRepositoryJPA<E, K> implements Repositorio<E, K>{
 	public E saveOrUpdate(E t) {
 		return entityManager.merge(t);
 	}
+	
+	@Override
+	@Transactional
+	public void persist(E t) {
+		entityManager.persist(t);
+	}
 
 	@Override
 	public E findById(K id) {

@@ -17,19 +17,19 @@ public class AdministrativoService {
 	@Qualifier("repositorioDeAdministrativos")
 	private RepositorioDeAdministrativos repositorio;
 	
-	public Administrativo guardar(Administrativo entity){
+	public Administrativo saveOrUpdate(Administrativo entity){
 		return repositorio.saveOrUpdate(entity); 
 	}
 	
-	public Collection<Administrativo> listar() {
+	public Collection<Administrativo> findAll() {
 		return repositorio.findAll();
 	}
 	
-	public Administrativo obtenerPorId(Long id) {
+	public Administrativo findById(Long id) {
 		return repositorio.findById(id);
 	}
 	
-	public void borrar(Administrativo entity) {
+	public void remove(Administrativo entity) {
 		repositorio.remove(entity);
 	}
 }

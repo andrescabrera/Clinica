@@ -35,11 +35,11 @@ public class Liquidacion {
 	}
 	
 	
-	//TODO - Alguna lógica de negocio que se me ocurre ahora
+	//TODO - Alguna logica de negocio que se me ocurre ahora
 	
 	public void liquidarEmpleado(Empleado empleado)
 	{
-		//Acá podría ir alguna validacion, si estamos en el día de la liquidacion o si esta cerrada.
+		//Aca podria ir alguna validacion, si estamos en el dia de la liquidacion o si esta cerrada.
 		if(fecha == null)
 			this.fecha = new Date();
 		if(sueldos == null)

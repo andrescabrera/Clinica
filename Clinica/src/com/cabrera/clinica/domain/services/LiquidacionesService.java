@@ -24,25 +24,25 @@ public class LiquidacionesService {
 	@Qualifier("empleadoService")
 	private EmpleadoService servicioEmpleado;
 	
-	public Liquidacion guardar(Liquidacion l){
+	public Liquidacion saveOrUpdate(Liquidacion l){
 		return repositorio.saveOrUpdate(l); 
 	}
 	
-	public Collection<Liquidacion> listar() {
+	public Collection<Liquidacion> findAll() {
 		return repositorio.findAll();
 	}
 	
-	public Liquidacion obtenerPorId(Long id) {
+	public Liquidacion findById(Long id) {
 		return repositorio.findById(id);
 	}
 	
-	public void borrar(Liquidacion l) {
+	public void remove(Liquidacion l) {
 		repositorio.remove(l);
 	}
 	
 	public Liquidacion liquidarCierreDeMes (Liquidacion liquidacion) {
 		
-		for(Empleado e : servicioEmpleado.listar()) {
+		for(Empleado e : servicioEmpleado.findAll()) {
 			liquidacion.liquidarEmpleado(e);
 		}
 		

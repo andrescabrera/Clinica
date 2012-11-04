@@ -18,19 +18,19 @@ public class SecretariaService {
 	@Qualifier("repositorioDeSecretarias")
 	private RepositorioDeSecretarias repositorio;
 	
-	public Secretaria guardar(Secretaria entity){
+	public Secretaria saveOrUpdate(Secretaria entity){
 		return repositorio.saveOrUpdate(entity); 
 	}
 	
-	public Collection<Secretaria> listar() {
+	public Collection<Secretaria> findAll() {
 		return repositorio.findAll();
 	}
 	
-	public Secretaria obtenerPorId(Long id) {
+	public Secretaria findById(Long id) {
 		return repositorio.findById(id);
 	}
 	
-	public void borrar(Secretaria entity) {
+	public void remove(Secretaria entity) {
 		repositorio.remove(entity);
 	}
 	

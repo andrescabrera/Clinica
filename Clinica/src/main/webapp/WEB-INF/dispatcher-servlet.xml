@@ -18,11 +18,13 @@ http://www.springframework.org/schema/oxm http://www.springframework.org/schema/
 
 	<bean
 		class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
-		<property name="order" value="1" />
+		<!-- <property name="order" value="1"></property> -->
+		<property name="defaultContentType" value="text/html"></property>
 		<property name="mediaTypes">
 			<map>
 				<entry key="json" value="application/json" />
 				<entry key="xml" value="application/xml" />
+				<entry key="html" value="text/html" />
 			</map>
 		</property>
 
@@ -39,20 +41,14 @@ http://www.springframework.org/schema/oxm http://www.springframework.org/schema/
 			</list>
 		</property>
 		<property name="ignoreAcceptHeader" value="true" />
+		<!-- <property name="viewResolvers"> -->
+		<!-- <list> -->
+		<!-- </list> -->
+		<!-- </property> -->
 	</bean>
-
-	<!-- process the @RequestMapping annotations at the class level -->
-	<bean
-		class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping" />
-
-	<!-- process the @RequestMapping annotations at the method level -->
-	<bean
-		class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter" />
-
 
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-		<property name="order" value="2" />
 		<property name="prefix">
 			<value>/WEB-INF/jsp/</value>
 		</property>
@@ -61,13 +57,58 @@ http://www.springframework.org/schema/oxm http://www.springframework.org/schema/
 		</property>
 	</bean>
 
-	<bean
-		class="org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping">
-		<property name="caseSensitive" value="false" />
+	<!-- Application Message Bundle -->
+	<bean id="messageSource"
+		class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+		<property name="basename" value="WEB-INF/messages/message" />
+		<property name="defaultEncoding" value="UTF-8" />
 	</bean>
 
+	<!-- Locale Change Interceptor and Resolver definition -->
+	<bean id="localeChangeInterceptor"
+		class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
+		<property name="paramName" value="lang" />
+	</bean>
+	<bean id="localeResolver"
+		class="org.springframework.web.servlet.i18n.CookieLocaleResolver">
+		<property name="defaultLocale" value="es" />
+	</bean>
+
+	<bean id="themeSource"
+		class="org.springframework.ui.context.support.ResourceBundleThemeSource">
+		<!-- <property name="basename" value="WEB-INF/themes"></property> -->
+		<property name="basenamePrefix" value="META-INF.theme-" />
+	</bean>
+
+	<!-- Theme Change Interceptor and Resolver definition -->
+	<bean id="themeChangeInterceptor"
+		class="org.springframework.web.servlet.theme.ThemeChangeInterceptor">
+		<property name="paramName" value="theme" />
+	</bean>
+	<bean id="themeResolver"
+		class="org.springframework.web.servlet.theme.CookieThemeResolver">
+		<property name="defaultThemeName" value="default" />
+	</bean>
+
+	<bean
+		class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping">
+		<property name="interceptors">
+			<list>
+				<ref bean="localeChangeInterceptor" />
+				<ref bean="themeChangeInterceptor" />
+			</list>
+		</property>
+	</bean>
+
+	<bean
+		class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter" />
 
 	<context:component-scan base-package="com.cabrera.clinica" />
 
-
+	<bean class="org.springframework.web.servlet.view.BeanNameViewResolver"></bean>
+	<!-- <mvc:resources mapping="/css/**" location="classpath:/WEB-INF/jsp/css/" 
+		/> -->
+	<mvc:resources mapping="/images/**" location="classpath:/WEB-INF/img/" />
+	<mvc:resources mapping="/js/**" location="classpath:/WEB-INF/js/" />
+	<mvc:resources mapping="/resources/**" location="/resources/" />
 </beans>

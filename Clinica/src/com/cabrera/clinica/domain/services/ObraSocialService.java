@@ -18,19 +18,19 @@ public class ObraSocialService {
 	@Qualifier("repositorioDeObrasSociales")
 	private RepositorioDeObrasSociales repositorio;
 	
-	public ObraSocial guardar(ObraSocial entity){
+	public ObraSocial saveOrUpdate(ObraSocial entity){
 		return repositorio.saveOrUpdate(entity); 
 	}
 	
-	public Collection<ObraSocial> listar() {
+	public Collection<ObraSocial> findAll() {
 		return repositorio.findAll();
 	}
 	
-	public ObraSocial obtenerPorId(Long id) {
+	public ObraSocial findById(Long id) {
 		return repositorio.findById(id);
 	}
 	
-	public void borrar(ObraSocial entity) {
+	public void remove(ObraSocial entity) {
 		repositorio.remove(entity);
 	}
 }

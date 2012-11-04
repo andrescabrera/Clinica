@@ -1,5 +1,7 @@
 package com.cabrera.clinica.domain;
 
+import java.util.Collection;
+
 public abstract class Empleado extends Rol {
 
 	private Long legajo;
@@ -7,6 +9,8 @@ public abstract class Empleado extends Rol {
 	private Sueldo sueldo;
 
 	private Area area;
+	
+	private Collection<Horario> horarios;
 
 	public Empleado() {
 	}
@@ -59,6 +63,14 @@ public abstract class Empleado extends Rol {
 	@Override
 	public String toString() {
 		return legajo.toString();
+	}
+
+	public Collection<Horario> getHorarios() {
+		return horarios;
+	}
+
+	public void addHorario(Horario horario) {
+		horarios.add(horario);
 	}
 	
 }

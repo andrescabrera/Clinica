@@ -18,19 +18,19 @@ public class EmpleadoService {
 	@Qualifier("repositorioDeEmpleados")
 	private RepositorioDeEmpleados repositorio;
 	
-	public Empleado guardar(Empleado entity){
+	public Empleado saveOrUpdate(Empleado entity){
 		return repositorio.saveOrUpdate(entity); 
 	}
 	
-	public Collection<Empleado> listar() {
+	public Collection<Empleado> findAll() {
 		return repositorio.findAll();
 	}
 	
-	public Empleado obtenerPorId(Long id) {
+	public Empleado findById(Long id) {
 		return repositorio.findById(id);
 	}
 	
-	public void borrar(Empleado entity) {
+	public void remove(Empleado entity) {
 		repositorio.remove(entity);
 	}
 	

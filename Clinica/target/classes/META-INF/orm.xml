@@ -60,12 +60,26 @@
 			<many-to-one name="area">
 				<join-column name="AREA_ID" />
 			</many-to-one>
-			<embedded name="sueldo"></embedded>
+			<one-to-many name="horarios">
+				<cascade>
+					<cascade-all></cascade-all>
+				</cascade>
+			</one-to-many>
+			<embedded name="sueldo"></embedded>			
 		</attributes>
 	</entity>
 
 	<entity class="com.cabrera.clinica.domain.Secretaria" access="FIELD">
 		<discriminator-value>S</discriminator-value>
+	</entity>
+	
+	<entity class="com.cabrera.clinica.domain.Horario" access="FIELD">
+		<attributes>
+			<id name="id">
+				<generated-value strategy="TABLE" />
+				<table-generator name="CP_GEN"></table-generator>
+			</id>
+		</attributes>
 	</entity>
 
 	<entity class="com.cabrera.clinica.domain.Administrativo"

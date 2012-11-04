@@ -7,21 +7,29 @@
 <title>Ver</title>
 </head>
 <body>
-	<h1>Ver producto</h1>
+	<h1>Ver persona</h1>
 	<br />
-	<a href="listar.html">Listar</a>
+	<a href="/personas">Ver personas</a>
 	<table>
 		<tr>
+			<td>Id</td>
+			<td>${persona.id}</td>
+		</tr>
+		<tr>
 			<td>Nombre</td>
-			<td>${producto.id}</td>
+			<td>${persona.nombre}</td>
 		</tr>
 		<tr>
-			<td>Precio</td>
-			<td>${producto.nombre}</td>
+			<td>Apellido</td>
+			<td>${persona.apellido}</td>
 		</tr>
 		<tr>
-			<td>Precio</td>
-			<td>${producto.precio}</td>
+			<td>Documento</td>
+			<td>${persona.documento}</td>
+		</tr>		
+		<tr>
+			<td>Fecha de Baja</td>
+			<td>${persona.fechaBaja}</td>
 		</tr>
 		
 	</table>

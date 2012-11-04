@@ -7,4 +7,5 @@ public interface Repositorio<E, K> {
 	E findById(K id);
 	void remove(E e);
 	Collection<E> findAll();
+	void persist(E t);
 }
