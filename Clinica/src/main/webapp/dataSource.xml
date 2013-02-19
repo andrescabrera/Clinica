@@ -9,7 +9,7 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
 		<property name="url" value="jdbc:mysql://localhost:3306/clinica" />
 		<property name="username" value="root" />
-		<property name="password" value="1164t" />
+		<property name="password" value="1164_aA0120D" />
 	</bean>
 
 </beans>

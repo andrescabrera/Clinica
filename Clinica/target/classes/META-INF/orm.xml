@@ -54,8 +54,8 @@
 	<entity class="com.cabrera.clinica.domain.Empleado" access="FIELD">
 		<table name="EMPLEADO"></table>
 		<inheritance strategy="JOINED" />
-		<discriminator-value>E</discriminator-value>
-		<discriminator-column name="TIPO_EMPLEADO" />
+<!-- 		<discriminator-value>E</discriminator-value> -->
+<!-- 		<discriminator-column name="TIPO_EMPLEADO" /> -->
 		<attributes>
 			<many-to-one name="area">
 				<join-column name="AREA_ID" />
@@ -76,8 +76,7 @@
 	<entity class="com.cabrera.clinica.domain.Horario" access="FIELD">
 		<attributes>
 			<id name="id">
-				<generated-value strategy="TABLE" />
-				<table-generator name="CP_GEN"></table-generator>
+				<generated-value/>
 			</id>
 		</attributes>
 	</entity>
@@ -110,7 +109,7 @@
 	<entity class="com.cabrera.clinica.domain.ContraPrestacion"
 		access="FIELD">
 		<inheritance strategy="TABLE_PER_CLASS"></inheritance>
-		<discriminator-column name="CONTRAPRESTACION_TYPE"></discriminator-column>
+<!-- 		<discriminator-column name="CONTRAPRESTACION_TYPE"></discriminator-column> -->
 		<attributes>
 			<id name="id">
 				<generated-value strategy="TABLE" />
@@ -152,7 +151,7 @@
 	<entity name="Analisis" class="com.cabrera.clinica.domain.Analisis"
 		access="FIELD">
 		<table name="ANALISIS" />
-		<discriminator-value>A</discriminator-value>
+<!-- 		<discriminator-value>A</discriminator-value> -->
 		<attributes>
 			<many-to-one name="medico" target-entity="com.cabrera.clinica.domain.Medico"></many-to-one>
 			<many-to-one name="paciente" target-entity="com.cabrera.clinica.domain.Paciente"></many-to-one>
@@ -163,7 +162,7 @@
 	<entity name="Turno" class="com.cabrera.clinica.domain.Turno"
 		access="FIELD">
 		<table name="TURNO" />
-		<discriminator-value>T</discriminator-value>
+<!-- 		<discriminator-value>T</discriminator-value> -->
 		<attributes>
 			<many-to-one name="medico" target-entity="com.cabrera.clinica.domain.Medico"></many-to-one>
 			<many-to-one name="paciente" target-entity="com.cabrera.clinica.domain.Paciente"></many-to-one>

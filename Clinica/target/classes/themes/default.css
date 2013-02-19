@@ -8,8 +8,8 @@
 
 header h1 {
 	font-family: cmss17;
-	background: url("../resources/header.png") no-repeat;
-	padding: 100px 400px;
+	background: url("/resources/header.png") no-repeat;
+	padding: 80px 350px;
 }
 
 body {

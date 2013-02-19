@@ -27,7 +27,10 @@
 
 
 	<bean id="administrativo" class="com.cabrera.clinica.domain.Administrativo"
-		scope="prototype">
+		scope="prototype" autowire="byName">
+		<property name="sueldo">
+			<ref bean="Sueldo" />
+		</property>
 	</bean>
 
 	<bean id="analisis" class="com.cabrera.clinica.domain.Analisis"
@@ -47,6 +50,9 @@
 	
 	<bean id="empleado" class="com.cabrera.clinica.domain.Empleado"
 		scope="prototype" autowire="default">
+		<property name="sueldo">
+			<ref bean="Sueldo" />
+		</property>
 	</bean>
 
 	<bean id="sueldo" class="com.cabrera.clinica.domain.Sueldo" scope="prototype">
@@ -61,7 +67,11 @@
 		</constructor-arg>
 	</bean>
 
-	<bean id="medico" class="com.cabrera.clinica.domain.Medico" scope="prototype"></bean>
+	<bean id="medico" class="com.cabrera.clinica.domain.Medico" scope="prototype">
+		<property name="sueldo">
+			<ref bean="sueldo" />
+		</property>
+	</bean>
 
 	<bean id="obraSocial" class="com.cabrera.clinica.domain.ObraSocial"
 		scope="prototype"></bean>
