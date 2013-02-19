@@ -2,15 +2,55 @@
 
 @font-face {
 	
-	font-family: cmss17;
-	src: url(fonts/cmss17.ttf) format("truetype");
+	font-family: VeraMoBd;
+	src: url(/resources/VeraMoBd.ttf) format("truetype");
 }
 
 header h1 {
-	font-family: cmss17;
+	font-family: VeraMoBd;
 }
 
 body {
     background-color: blue;
     color: white;
+}
+
+nav {
+	font-size: medium;	
+}
+
+nav ul {
+	float:left;
+	background-color: white;
+	color: blue;	
+}
+
+nav ul a {
+}
+
+section {
+	clear: both;	
+}
+
+section article {
+	float: left;
+	width: 300px;
+	backgroung-color: #FFFFA2;
+	border-color: gray;
+	border-style: groove;
+	border-width: 1px;
+	margin: 5px;
+}
+
+footer {
+	clear: left;	
+}
+
+#opciones a {
+	font-weight: bolder;	
+	font-size: large;
+	font-family: sans-serif;
+	color: gray;
+	padding: 15px;
+	color: #gray;		
 }

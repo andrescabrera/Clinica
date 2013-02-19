@@ -3,7 +3,7 @@
 @font-face {
 	
 	font-family: cmss17;
-	src: url(fonts/cmss17.ttf) format("truetype");
+	src: url(/resources/cmss17.ttf) format("truetype");
 }
 
 header h1 {
@@ -20,8 +20,42 @@ body {
 nav {
 	background-color: blue;
 	color: white;
+	font-size: medium;
+	display: block;
 }
 
 nav ul {
 	float:left;	
+}
+
+section {
+	clear: both;	
+}
+
+section article {
+	float: left;
+	width: 300px;
+	backgroung-color: #FFFFA2;
+	border-color: gray;
+	border-style: groove;
+	border-width: 1px;
+	padding: 10px;
+	margin: 2px;
+	
+}
+
+footer {
+	clear: left;
+	font-size: medium;
+	font-weight: bolder;
+	padding: 10px;	
+}
+
+#opciones a {
+	font-weight: bolder;	
+	font-size: large;
+	font-family: sans-serif;
+	color: gray;
+	padding: 15px;
+	color: #gray;		
 }
