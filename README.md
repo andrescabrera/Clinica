@@ -1,7 +1,7 @@
 Clinica
 =======
 
-Sistema de gestión para clinicas medicas.
+Sistema de gestiï¿½n para clinicas medicas.
 Desarrollado en Java, Hibernate 4 y Spring 3.
 
-![Diagrama de Clases](Clinica/blob/master/DiagramaClases.jpg?raw=true)
+![Diagrama de Clases](https://raw.github.com/andrescabrera/Clinica/master/DiagramaClases.jpg)
